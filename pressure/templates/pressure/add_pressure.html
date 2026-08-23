@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить давление</title>
+</head>
+<body>
+
+    <h1>Добавить запись</h1>
+
+    <form method="post">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit">Сохранить</button>
+    </form>
+
+    <a href="{% url 'index' %}">На главную</a>
+
+</body>
+</html>
