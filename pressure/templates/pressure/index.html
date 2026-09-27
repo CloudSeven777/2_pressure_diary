@@ -17,9 +17,12 @@
             пульс {{ record.pulse }},
             {{ record.created_at }}
 
-            <a href="{% url 'delete_pressure' record.id %}">
-            Удалить
-            </a>
+            <form method="post"
+      action="{% url 'delete_pressure' record.id %}"
+      style="display: inline;">
+    {% csrf_token %}
+    <button type="submit">Удалить</button>
+           </form>
         </p>
     {% empty %}
         <p>Записей пока нет.</p>

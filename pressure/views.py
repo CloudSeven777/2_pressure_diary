@@ -2,7 +2,7 @@ from django.shortcuts import redirect, render
 
 from .forms import PressureRecordForm
 from .models import PressureRecord
-
+from django.views.decorators.http import require_POST
 
 def index(request):
     records = PressureRecord.objects.all().order_by("-created_at")
@@ -28,6 +28,7 @@ def add_pressure(request):
         {"form": form},
     )
 
+@require_POST
 def delete_pressure(request, record_id):
     record = PressureRecord.objects.get(id=record_id)
     record.delete()
