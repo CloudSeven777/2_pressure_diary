@@ -16,6 +16,10 @@
             {{ record.systolic }}/{{ record.diastolic }},
             пульс {{ record.pulse }},
             {{ record.created_at }}
+
+            <a href="{% url 'delete_pressure' record.id %}">
+            Удалить
+            </a>
         </p>
     {% empty %}
         <p>Записей пока нет.</p>

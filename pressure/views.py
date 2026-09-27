@@ -27,3 +27,8 @@ def add_pressure(request):
         "pressure/add_pressure.html",
         {"form": form},
     )
+
+def delete_pressure(request, record_id):
+    record = PressureRecord.objects.get(id=record_id)
+    record.delete()
+    return redirect("index")
